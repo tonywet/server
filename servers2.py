@@ -25,7 +25,7 @@ def get():
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 ip = socket.gethostbyname(socket.gethostname())
-sock.bind((ip, 10006))
+sock.bind((ip, 2247))
 client = []  # Массив где храним адреса клиентов
 print('Start Server')
 while 1:
