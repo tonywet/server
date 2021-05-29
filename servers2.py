@@ -11,6 +11,7 @@ def update_sql(array):
     cur.execute("UPDATE users SET pb_key= ? WHERE login=? ", (pb_key, login))
     con.commit()
     con.close()
+    print("add")
 
 
 def get():
@@ -24,7 +25,7 @@ def get():
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 ip = socket.gethostbyname(socket.gethostname())
-sock.bind((ip, 2247))
+sock.bind((ip, 10006))
 client = []  # Массив где храним адреса клиентов
 print('Start Server')
 while 1:
@@ -41,6 +42,7 @@ while 1:
         else:
             opendata = list.split('>')
             update_sql(opendata)
+            print('done')
     except:
         if addres not in client:
             client.append(addres)  # Если такого клиента нету , то добавить
